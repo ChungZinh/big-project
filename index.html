@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Danh thiếp số</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        background: #f4f6f9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .card {
+        background: #fff;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        width: 360px;
+        max-width: 95%;
+        animation: fadeIn 0.6s ease-in-out;
+      }
+
+      .header {
+        background: url("images/bg.jpg") center top/cover no-repeat;
+        text-align: center;
+        padding: 40px 20px 50px;
+        color: white;
+        position: relative;
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      .logo-link {
+        position: absolute;
+        top: 0px;
+        left: 5px;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+
+      .logo-img {
+        width: 100px;
+        height: auto;
+        margin-right: 10px;
+      }
+
+      .avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 5px solid #fff;
+        object-fit: cover;
+        position: relative;
+        display: block;
+        margin: px auto 20px auto; /* Giảm giá trị âm để avatar thấp xuống */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        background: white;
+      }
+
+      .name {
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin-top: 20px;
+      }
+
+      .role {
+        font-size: 0.95rem;
+        opacity: 0.85;
+        margin-bottom: 15px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background: white;
+        color: #4f46e5;
+        font-weight: bold;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: 0.3s;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn:hover {
+        background: #4f46e5;
+        color: white;
+      }
+
+      .info {
+        padding: 20px;
+      }
+
+      .info-item {
+        background: #fafafa;
+        border-radius: 12px;
+        padding: 15px;
+        margin-bottom: 12px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        transition: 0.2s;
+      }
+
+      .info-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      }
+
+      .info-item strong {
+        display: block;
+        color: #374151;
+        margin-bottom: 6px;
+      }
+
+      .info-item a {
+        color: #4f46e5;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .info-item a:hover {
+        text-decoration: underline;
+      }
+
+      .toast {
+        position: fixed;
+        bottom: 32px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #4f46e5;
+        color: #fff;
+        padding: 16px 32px;
+        border-radius: 30px;
+        font-size: 1rem;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s, bottom 0.4s;
+        z-index: 9999;
+      }
+
+      .toast.show {
+        opacity: 1;
+        bottom: 64px;
+        pointer-events: auto;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card" id="card">
+      <!-- Nội dung sẽ được render bằng JS -->
+    </div>
+    <div class="toast" id="toast"></div>
+    <script>
+      async function getSlug() {
+        const url = new URL(window.location.href);
+        if (url.searchParams.get("u")) return url.searchParams.get("u");
+        const pathArr = url.pathname.split("/");
+        let slug = pathArr[pathArr.length - 1];
+        if (slug.endsWith(".html") || slug === "") return "";
+        return slug;
+      }
+
+      async function loadUsers() {
+        const res = await fetch("data.json");
+        const data = await res.json();
+        return data;
+      }
+
+      function renderUser(user) {
+        document.getElementById("card").innerHTML = `
+      <div class="header">
+        <a href="https://tonnamkim.com/" target="_blank" class="logo-link">
+          <img src="images/logo.png" alt="Logo" class="logo-img" />
+        </a>
+        <img src="${user.avatar}" alt="Avatar" class="avatar" />
+        <div class="name">${user.name}</div>
+        <div class="role">${user.role}</div>
+      </div>
+      <div class="info">
+        <div class="info-item">
+          <strong>Giới thiệu</strong>
+          <div>${user.about || "Chưa có thông tin giới thiệu."}</div>
+        </div>
+        <div class="info-item">
+          <strong>Email</strong>
+          <a href="mailto:${user.email}">${user.email}</a>
+        </div>
+        <div class="info-item">
+          <strong>Phone</strong>
+          <a href="tel:${user.phone}">${user.phone}</a>
+        </div>
+        <div class="info-item">
+          <strong>Social</strong>
+          <a href="${user.url}" target="_blank">${user.url}</a>
+          ${
+            user.zalo
+              ? `<a href="${user.zalo}" target="_blank" style="margin-left:12px;">
+                  <img src="images/zalo-icon.png" alt="Zalo" style="width:24px;height:24px;vertical-align:middle;" />
+                </a>`
+              : ""
+          }
+        </div>
+        <div style="text-align:center; margin-top:24px;">
+          <a href="#" class="btn" id="addContact">Lưu liên hệ</a>
+        </div>
+      </div>
+    `;
+
+        document.getElementById("addContact").onclick = function (e) {
+          e.preventDefault();
+          const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:${user.name}
+N:${user.name};;;;
+ORG:Công ty cổ phần thép Nam Kim
+TITLE:${user.role}
+TEL;TYPE=CELL:${user.phone}
+EMAIL;TYPE=INTERNET:${user.email}
+END:VCARD`;
+
+          const blob = new Blob([vcard], { type: "text/vcard" });
+          const url = window.URL.createObjectURL(blob);
+          const link = document.createElement("a");
+          link.style.display = "none";
+          link.href = url;
+          link.download = `${user.name}.vcf`;
+          document.body.appendChild(link);
+          link.click();
+          setTimeout(() => {
+            showToast("Đã lưu!");
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(link);
+          }, 800);
+        };
+      }
+
+      function showToast(message) {
+        const toast = document.getElementById("toast");
+        toast.textContent = message;
+        toast.classList.add("show");
+        setTimeout(() => {
+          toast.classList.remove("show");
+        }, 2200);
+      }
+
+      // Khởi tạo
+      (async () => {
+        const slug = await getSlug();
+        const users = await loadUsers();
+        const user = users.find((u) => u.slug === slug);
+        if (user) {
+          renderUser(user);
+        } else {
+          document.getElementById("card").innerHTML =
+            "<div style='padding:40px;text-align:center'>Không tìm thấy user!</div>";
+        }
+      })();
+    </script>
+  </body>
+</html>
