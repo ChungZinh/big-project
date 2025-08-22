@@ -2,7 +2,7 @@ const XLSX = require("xlsx");
 const fs = require("fs");
 
 // đọc file Excel
-const workbook = XLSX.readFile("sample_users.xlsx");
+const workbook = XLSX.readFile("sample_users.xlsm");
 const sheet_name = workbook.SheetNames[0];
 
 // convert sheet sang JSON, mặc định hàng đầu là header

@@ -266,7 +266,7 @@ END:VCARD`;
       (async () => {
         const slug = await getSlug();
         const users = await loadUsers();
-        const user = users.find((u) => u.slug === slug);
+        const user = users.find((u) => u.id.toString() === slug.toString());
         if (user) {
           renderUser(user);
         } else {

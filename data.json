@@ -1,132 +1,122 @@
 [
     {
+        "STT": 1,
         "id": 1234,
         "name": "Alice",
-        "slug": "alice",
         "role": "Admin",
-        "avatar": "avatar1.png",
+        "avatar": "C:\\Project\\1234.jpg",
         "email": "alice@mail.com",
         "phone": "0123456789",
-        "zalo": "alice_zalo",
+        "zalo": "https://zalo.me/0123456789",
         "about": "About Alice",
-        "url": "https://alice.com",
-        "qr": "qr1.png"
+        "url": "https://tonnamkim.com/namecard/1234"
     },
     {
+        "STT": 2,
         "id": 1235,
         "name": "Bob",
-        "slug": "bob",
         "role": "User",
-        "avatar": "avatar2.png",
+        "avatar": "C:\\Project\\1235.jpg",
         "email": "bob@mail.com",
         "phone": "0987654321",
-        "zalo": "bob_zalo",
+        "zalo": "https://zalo.me/0987654321",
         "about": "About Bob",
-        "url": "https://bob.com",
-        "qr": "qr2.png"
+        "url": "https://tonnamkim.com/namecard/1235"
     },
     {
+        "STT": 3,
         "id": 1236,
         "name": "Charlie",
-        "slug": "charlie",
         "role": "User",
-        "avatar": "avatar3.png",
+        "avatar": "C:\\Project\\1236.jpg",
         "email": "charlie@mail.com",
         "phone": "0111222333",
-        "zalo": "charlie_zalo",
+        "zalo": "https://zalo.me/0111222333",
         "about": "About Charlie",
-        "url": "https://charlie.com",
-        "qr": "qr3.png"
+        "url": "https://tonnamkim.com/namecard/1236"
     },
     {
+        "STT": 4,
         "id": 1237,
         "name": "David",
-        "slug": "david",
         "role": "Manager",
-        "avatar": "avatar4.png",
+        "avatar": "C:\\Project\\1237.jpg",
         "email": "david@mail.com",
         "phone": "0222333444",
-        "zalo": "david_zalo",
+        "zalo": "https://zalo.me/0222333444",
         "about": "About David",
-        "url": "https://david.com",
-        "qr": "qr4.png"
+        "url": "https://tonnamkim.com/namecard/1237"
     },
     {
+        "STT": 5,
         "id": 1238,
         "name": "Eve",
-        "slug": "eve",
         "role": "User",
-        "avatar": "avatar5.png",
+        "avatar": "C:\\Project\\1238.jpg",
         "email": "eve@mail.com",
         "phone": "0333444555",
-        "zalo": "eve_zalo",
+        "zalo": "https://zalo.me/0333444555",
         "about": "About Eve",
-        "url": "https://eve.com",
-        "qr": "qr5.png"
+        "url": "https://tonnamkim.com/namecard/1238"
     },
     {
+        "STT": 6,
         "id": 1239,
         "name": "Frank",
-        "slug": "frank",
         "role": "Admin",
-        "avatar": "avatar6.png",
+        "avatar": "C:\\Project\\1239.jpg",
         "email": "frank@mail.com",
         "phone": "0444555666",
-        "zalo": "frank_zalo",
+        "zalo": "https://zalo.me/0444555666",
         "about": "About Frank",
-        "url": "https://frank.com",
-        "qr": "qr6.png"
+        "url": "https://tonnamkim.com/namecard/1239"
     },
     {
+        "STT": 7,
         "id": 1240,
         "name": "Grace",
-        "slug": "grace",
         "role": "User",
-        "avatar": "avatar7.png",
+        "avatar": "C:\\Project\\1240.jpg",
         "email": "grace@mail.com",
         "phone": "0555666777",
-        "zalo": "grace_zalo",
+        "zalo": "https://zalo.me/0555666777",
         "about": "About Grace",
-        "url": "https://grace.com",
-        "qr": "qr7.png"
+        "url": "https://tonnamkim.com/namecard/1240"
     },
     {
+        "STT": 8,
         "id": 1241,
         "name": "Hank",
-        "slug": "hank",
         "role": "User",
-        "avatar": "avatar8.png",
+        "avatar": "C:\\Project\\1241.jpg",
         "email": "hank@mail.com",
         "phone": "0666777888",
-        "zalo": "hank_zalo",
+        "zalo": "https://zalo.me/0666777888",
         "about": "About Hank",
-        "url": "https://hank.com",
-        "qr": "qr8.png"
+        "url": "https://tonnamkim.com/namecard/1241"
     },
     {
+        "STT": 9,
         "id": 1242,
         "name": "Ivy",
-        "slug": "ivy",
         "role": "Manager",
         "avatar": "avatar9.png",
         "email": "ivy@mail.com",
         "phone": "0777888999",
-        "zalo": "ivy_zalo",
+        "zalo": "https://zalo.me/0777888999",
         "about": "About Ivy",
-        "url": "https://ivy.com",
-        "qr": "qr9.png"
+        "url": "https://tonnamkim.com/namecard/1242"
     },
     {
+        "STT": 10,
         "id": 1243,
         "name": "Jack",
-        "slug": "jack",
         "role": "User",
         "avatar": "avatar10.png",
         "email": "jack@mail.com",
         "phone": "0888999000",
-        "zalo": "jack_zalo",
+        "zalo": "https://zalo.me/0888999000",
         "about": "About Jack",
-        "url": "https://jack.com",
-        "qr": "qr10.png"
+        "url": "https://tonnamkim.com/namecard/1243"
     }
 ]
